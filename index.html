@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus Flow | Study App</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Focus Flow</h1>
+        <p class="subtitle">Stay productive, stay focused</p>
+      </header>
+
+      <main>
+        <section class="timer-section">
+          <div class="timer-container">
+            <div class="timer-display">
+              <span id="minutes">25</span>:<span id="seconds">00</span>
+            </div>
+            <div class="timer-label" id="timer-label">Focus Time</div>
+            <div class="timer-controls">
+              <button id="start-btn" class="btn primary">Start</button>
+              <button id="pause-btn" class="btn secondary" disabled>
+                Pause
+              </button>
+              <button id="reset-btn" class="btn secondary">Reset</button>
+            </div>
+            <div class="timer-mode">
+              <button id="pomodoro-btn" class="mode-btn active">
+                Pomodoro
+              </button>
+              <button id="short-break-btn" class="mode-btn">Short Break</button>
+              <button id="long-break-btn" class="mode-btn">Long Break</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="tasks-section">
+          <div class="tasks-header">
+            <h2>Tasks</h2>
+            <button id="add-task-btn" class="btn primary">Add Task</button>
+          </div>
+
+          <div class="task-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="today">Today</button>
+            <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+            <button class="filter-btn" data-filter="completed">
+              Completed
+            </button>
+          </div>
+
+          <div class="tasks-container" id="tasks-container">
+            <!-- Tasks will be added here dynamically -->
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Add Task Modal -->
+    <div class="modal" id="task-modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 id="modal-title">Add New Task</h2>
+        <form id="task-form">
+          <div class="form-group">
+            <label for="task-title">Task Title</label>
+            <input type="text" id="task-title" required />
+          </div>
+          <div class="form-group">
+            <label for="task-description">Description (optional)</label>
+            <textarea id="task-description"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="task-date">Due Date</label>
+            <input type="date" id="task-date" required />
+          </div>
+          <div class="form-group">
+            <label for="task-category">Category</label>
+            <select id="task-category">
+              <option value="study">Study</option>
+              <option value="work">Work</option>
+              <option value="personal">Personal</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="task-important" />
+            <label for="task-important">Mark as important</label>
+          </div>
+          <div class="form-actions">
+            <button type="button" id="cancel-task-btn" class="btn secondary">
+              Cancel
+            </button>
+            <button type="submit" class="btn primary">Save Task</button>
+          </div>
+          <input type="hidden" id="task-id" />
+        </form>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
